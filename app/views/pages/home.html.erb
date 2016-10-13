@@ -1,0 +1,36 @@
+<%= render 'shared/header' %>
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 center">
+				<h4> Games' Logs </h4>
+				<p class="center-align light">Sorry, currently there are no game logs available.</p>
+			</div>
+		</div>
+		<div class="divider"></div>
+	</div>
+</main>
+<%= render 'shared/footer' %>
+<div id="modalLogin" class="modal">
+  <div class="modal-content">
+  	<h4 class="center-align">Log in Admin</h4>
+    <div class="row">
+        <div class="input-field col s12">
+        	<i class="material-icons prefix">contact_mail</i>
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+        	<i class="material-icons prefix">vpn_key</i>
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row right-align">
+      	<button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
