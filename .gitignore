@@ -23,4 +23,5 @@
 # Ignore Mac OSX .DS_Store
 .DS_Store
 
-
+# Ignore uploaded test images.
+/public/uploads
