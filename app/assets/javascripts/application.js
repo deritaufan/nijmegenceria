@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
-//= require modal_initialization
+//= require materialize_initialization

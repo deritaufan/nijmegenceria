@@ -3,6 +3,15 @@
 	  <div class="row">
       <div class="col m10 offset-m1 s12">
         <h3 class="center-align">List of All Players</h2>
+        <ul class="collection">
+        	<% @players.each do |player| %>
+				    <li class="collection-item avatar">
+				      <%= image_tag(player.avatar.url, class: "circle") if player.avatar? %>
+				      <span class="title"><%= player.name %></span>
+				      <a href="#!" class="secondary-content"><i class="material-icons">mode_edit</i></a>
+				    </li>
+			    <% end %>
+		  </ul>
       </div>
 	  </div>
 	</div>
