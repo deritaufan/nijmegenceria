@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
   def index
-  	@players = Player.paginate(page: params[:page], per_page: 1)
+  	# @players = Player.paginate(page: params[:page], per_page: 1)
+  	@players = Player.all
   end
 
   def new
