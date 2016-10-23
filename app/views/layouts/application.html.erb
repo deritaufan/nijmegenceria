@@ -5,13 +5,29 @@
     <%= csrf_meta_tags %>
 		<%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= render 'shared/header' %>
-    <%= yield %>
+    <main>
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+          <%= javascript_tag do %>
+            $(function(){Materialize.toast('<%= message %>', 5000, 'rounded');});
+          <% end %>
+        <% end %>
+        <%= yield %>
+        <%= render "shared/modal_login" %>
+      </div>
+    </main>
     <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_tag do %>
+      $(document).ready(function(){
+        $('.button-collapse').sideNav();
+      });
+    <% end %>
     <%= debug(params) if Rails.env.development? %>
   </body>
+
 </html>

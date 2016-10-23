@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col m10 offset-m1 s12">
+    <h3 class="center-align">Add Player</h2>
+    <div class="row">
+    	<%= render 'shared/error_messages' %>
+      <%= form_for @player, html: { class: "col s12", multipart: true } do |f| %>
+        <div class="row">
+          <div class="input-field col m12 s12">
+            <%= f.text_field(:name, type: "text") %>
+						<%= f.label :name %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col m4">
+            <%= image_tag(@player.avatar? ? @player.avatar.url : "default_profile.png", class: "responsive-img z-depth-3") %>
+          </div>
+          <div class="col m8">
+            <div class="file-field input-field">
+				      <div class="btn">
+				        <span>Photo</span>
+                <%= f.file_field :avatar, accept: 'image/jpeg,image/jpg,image/png' %>
+				      </div>
+				      <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload a photo">
+              </div>
+			    	</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col m12">
+           <p class="right-align">
+           <%= f.button 'Save Change', class: "btn btn-large waves-effect waves-light" %>
+         	 </p>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $('#player_avatar').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>

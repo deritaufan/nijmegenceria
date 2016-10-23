@@ -1,41 +1,38 @@
-<main>
-	<div class="container">
-	  <div class="row">
-      <div class="col m10 offset-m1 s12">
-        <h3 class="center-align">Add Player</h2>
+  <div class="row">
+  <div class="col m10 offset-m1 s12">
+    <h3 class="center-align">Add Player</h2>
+    <div class="row">
+    	<%= render 'shared/error_messages' %>
+      <%= form_for @player, html: { class: "col s12", multipart: true }, url: add_player_path do |f| %>
         <div class="row">
-        	<%= render 'shared/error_messages' %>
-          <%= form_for @player, html: { class: "col s12", multipart: true }, url: add_player_path do |f| %>
-            <div class="row">
-              <div class="input-field col m12 s12">
-                <%= f.text_field(:name, type: "text") %>
-								<%= f.label :name %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="file-field input-field">
-					      <div class="btn">
-					        <span>Photo</span>
-                  <%= f.file_field :avatar, accept: 'image/jpeg,image/jpg,image/png' %>
-					      </div>
-					      <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" placeholder="Upload a photo">
-                </div>
-				    	</div>
-            </div>
-            <div class="row">
-              <div class="col m12">
-               <p class="right-align">
-               <%= f.button 'Save', class: "btn btn-large waves-effect waves-light" %>
-             	 </p>
-              </div>
-            </div>
-            <% end %>
+          <div class="input-field col m12 s12">
+            <%= f.text_field(:name, type: "text") %>
+						<%= f.label :name %>
+          </div>
         </div>
-      </div>
-	  </div>
-	</div>
-</main>
+        <div class="row">
+          <div class="file-field input-field">
+			      <div class="btn">
+			        <span>Photo</span>
+              <%= f.file_field :avatar, accept: 'image/jpeg,image/jpg,image/png' %>
+			      </div>
+			      <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Upload a photo">
+            </div>
+		    	</div>
+        </div>
+        <div class="row">
+          <div class="col m12 s12">
+           <p class="right-align">
+           <%= f.button 'Save', class: "btn btn-large waves-effect waves-light" %>
+         	 </p>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
 
 <script type="text/javascript">
   $('#player_avatar').bind('change', function() {
